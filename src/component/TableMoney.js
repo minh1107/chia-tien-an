@@ -92,7 +92,6 @@ export default function TableMoney({value, checkedList, money}) {
     {
       title: 'tien anh',
       dataIndex: 'tienanh',
-      editable: true,
     },
     {
       title: 'Vinh',
