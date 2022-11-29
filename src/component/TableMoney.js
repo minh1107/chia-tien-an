@@ -132,7 +132,7 @@ export default function TableMoney({value, checkedList, money}) {
     if(checkedList.includes('Hieu') && value != "Hieu") hMoney = - money/(checkedList.length)
     if(checkedList.includes('Nghia Minh') && value != "Nghia Minh") mnMoney = - money/(checkedList.length)
     if(checkedList.includes('Quang Minh') && value != "Quang Minh") qmMoney = - money/(checkedList.length)
-
+    
     const newData = {
       key: count,
       tienanh: taMoney,
