@@ -3,3 +3,5 @@
 - 1 checkbox để chọn những người ăn
 - 1 ô input nhập só tiền phải chi
 - 1 table để hiển thị tiền của tường người xem đúng không
+
+$ npm run deploy
