@@ -1,4 +1,4 @@
-import { Button, Form, Input, Popconfirm, Table } from 'antd';
+import { Avatar, Button, Form, Input, List, Popconfirm, Table } from 'antd';
 import React, { useContext, useEffect, useRef, useState } from 'react'
 
 const EditableContext = React.createContext(null);
@@ -192,7 +192,11 @@ export default function TableMoney({value, checkedList, money}) {
       qm += data.quangminh
     })
     setresult([
-      ta, v, h ,mn,qm
+      {"money": ta, "name": "tien anh"},
+      {"money": v, name: "vinh"},
+      {"money": h, name: "hieu"},
+      {"money": mn, name: "Minh Nghia"},
+      {"money": qm, name: "Quang Minh"}
     ])
   }
   return (
@@ -215,12 +219,17 @@ export default function TableMoney({value, checkedList, money}) {
         columns={columns}
       />
       <Button onClick={totalMoney}>Tính tổng tiền</Button>
-      <br/>
-        tien anh: {result[0]}<br/>
-        Vinh: {result[1]}<br/>
-        Hieu: {result[2]}<br/>
-        Nghia minh: {result[3]}<br/>
-        Quang minh: {result[4]}<br/>
+      <List
+        itemLayout="horizontal"
+        dataSource={result}
+        renderItem={(item) => (
+          <List.Item>
+            <List.Item.Meta
+              title={<p>{item.name}: {item.money}</p>}
+            />
+          </List.Item>
+        )}
+      />
     </div>
     
     </>
