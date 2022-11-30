@@ -1,4 +1,4 @@
-import { Button, Form, Input, Popconfirm, Table } from 'antd';
+import { Avatar, Button, Form, Input, List, Popconfirm, Table } from 'antd';
 import React, { useContext, useEffect, useRef, useState } from 'react'
 
 const EditableContext = React.createContext(null);
@@ -92,7 +92,6 @@ export default function TableMoney({value, checkedList, money}) {
     {
       title: 'tien anh',
       dataIndex: 'tienanh',
-      editable: true,
     },
     {
       title: 'Vinh',
@@ -122,18 +121,22 @@ export default function TableMoney({value, checkedList, money}) {
     },
   ];
   const handleAdd = () => {
+    console.log(value);
     let taMoney = 0, vMoney = 0, hMoney = 0, mnMoney = 0, qmMoney = 0;
     if(value == "Tien anh") taMoney = money/(checkedList.length)*(checkedList.length-1);
     else if(value == "Vinh") vMoney = money/(checkedList.length)*(checkedList.length-1)
     else if(value == 'Hieu') hMoney = money/(checkedList.length)*(checkedList.length-1) 
     else if (value == "Nghia Minh") mnMoney = money/(checkedList.length)*(checkedList.length-1)
     else if (value == "Quang Minh") qmMoney = money/(checkedList.length)*(checkedList.length-1)
-    if(checkedList.includes('Tien anh' && value != "Tien anh")) taMoney = - money/(checkedList.length)
+    if(checkedList.includes('Tien anh') && value != "Tien anh") {
+      console.log(- money/(checkedList.length))
+      taMoney = - money/(checkedList.length)
+    }
     if(checkedList.includes('Vinh') && value != "Vinh") vMoney = - money/(checkedList.length)
     if(checkedList.includes('Hieu') && value != "Hieu") hMoney = - money/(checkedList.length)
     if(checkedList.includes('Nghia Minh') && value != "Nghia Minh") mnMoney = - money/(checkedList.length)
     if(checkedList.includes('Quang Minh') && value != "Quang Minh") qmMoney = - money/(checkedList.length)
-
+    
     const newData = {
       key: count,
       tienanh: taMoney,
@@ -189,7 +192,11 @@ export default function TableMoney({value, checkedList, money}) {
       qm += data.quangminh
     })
     setresult([
-      ta, v, h ,mn,qm
+      {"money": ta, "name": "tien anh"},
+      {"money": v, name: "vinh"},
+      {"money": h, name: "hieu"},
+      {"money": mn, name: "Minh Nghia"},
+      {"money": qm, name: "Quang Minh"}
     ])
   }
   return (
@@ -212,12 +219,17 @@ export default function TableMoney({value, checkedList, money}) {
         columns={columns}
       />
       <Button onClick={totalMoney}>Tính tổng tiền</Button>
-      <br/>
-        tien anh: {result[0]}<br/>
-        Vinh: {result[1]}<br/>
-        Hieu: {result[2]}<br/>
-        Nghia minh: {result[3]}<br/>
-        Quang minh: {result[4]}<br/>
+      <List
+        itemLayout="horizontal"
+        dataSource={result}
+        renderItem={(item) => (
+          <List.Item>
+            <List.Item.Meta
+              title={<p>{item.name}: {item.money}</p>}
+            />
+          </List.Item>
+        )}
+      />
     </div>
     
     </>
