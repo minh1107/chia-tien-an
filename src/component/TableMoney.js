@@ -121,13 +121,17 @@ export default function TableMoney({value, checkedList, money}) {
     },
   ];
   const handleAdd = () => {
+    console.log(value);
     let taMoney = 0, vMoney = 0, hMoney = 0, mnMoney = 0, qmMoney = 0;
     if(value == "Tien anh") taMoney = money/(checkedList.length)*(checkedList.length-1);
     else if(value == "Vinh") vMoney = money/(checkedList.length)*(checkedList.length-1)
     else if(value == 'Hieu') hMoney = money/(checkedList.length)*(checkedList.length-1) 
     else if (value == "Nghia Minh") mnMoney = money/(checkedList.length)*(checkedList.length-1)
     else if (value == "Quang Minh") qmMoney = money/(checkedList.length)*(checkedList.length-1)
-    if(checkedList.includes('Tien anh' && value != "Tien anh")) taMoney = - money/(checkedList.length)
+    if(checkedList.includes('Tien anh') && value != "Tien anh") {
+      console.log(- money/(checkedList.length))
+      taMoney = - money/(checkedList.length)
+    }
     if(checkedList.includes('Vinh') && value != "Vinh") vMoney = - money/(checkedList.length)
     if(checkedList.includes('Hieu') && value != "Hieu") hMoney = - money/(checkedList.length)
     if(checkedList.includes('Nghia Minh') && value != "Nghia Minh") mnMoney = - money/(checkedList.length)
