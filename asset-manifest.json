@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/chia-tien-an/static/css/main.073c9b0a.css",
-    "main.js": "/chia-tien-an/static/js/main.e509dc0d.js",
+    "main.js": "/chia-tien-an/static/js/main.95c363f7.js",
     "static/js/787.fe00223f.chunk.js": "/chia-tien-an/static/js/787.fe00223f.chunk.js",
     "static/media/logo.svg": "/chia-tien-an/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
     "index.html": "/chia-tien-an/index.html",
     "main.073c9b0a.css.map": "/chia-tien-an/static/css/main.073c9b0a.css.map",
-    "main.e509dc0d.js.map": "/chia-tien-an/static/js/main.e509dc0d.js.map",
+    "main.95c363f7.js.map": "/chia-tien-an/static/js/main.95c363f7.js.map",
     "787.fe00223f.chunk.js.map": "/chia-tien-an/static/js/787.fe00223f.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.073c9b0a.css",
-    "static/js/main.e509dc0d.js"
+    "static/js/main.95c363f7.js"
   ]
 }
