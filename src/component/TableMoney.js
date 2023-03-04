@@ -103,10 +103,6 @@ export default function TableMoney({value, checkedList, money}) {
       dataIndex: 'hieu',
     },
     {
-      title: 'Minh Nghia',
-      dataIndex: 'minhnghia',
-    },
-    {
       title: 'Quang Minh',
       dataIndex: 'quangminh',
     },
@@ -126,12 +122,10 @@ export default function TableMoney({value, checkedList, money}) {
     if(value == "Tien anh") taMoney = money/(checkedList.length)*(checkedList.length-1);
     else if(value == "Vinh") vMoney = money/(checkedList.length)*(checkedList.length-1)
     else if(value == 'Hieu') hMoney = money/(checkedList.length)*(checkedList.length-1) 
-    else if (value == "Nghia Minh") mnMoney = money/(checkedList.length)*(checkedList.length-1)
     else if (value == "Quang Minh") qmMoney = money/(checkedList.length)*(checkedList.length-1)
     if(checkedList.includes('Tien anh' && value != "Tien anh")) taMoney = - money/(checkedList.length)
     if(checkedList.includes('Vinh') && value != "Vinh") vMoney = - money/(checkedList.length)
     if(checkedList.includes('Hieu') && value != "Hieu") hMoney = - money/(checkedList.length)
-    if(checkedList.includes('Nghia Minh') && value != "Nghia Minh") mnMoney = - money/(checkedList.length)
     if(checkedList.includes('Quang Minh') && value != "Quang Minh") qmMoney = - money/(checkedList.length)
 
     const newData = {
@@ -179,17 +173,16 @@ export default function TableMoney({value, checkedList, money}) {
   });
   const [result, setresult] = useState([])
   const totalMoney = () => {
-    var ta = 0, v = 0,h = 0,mn = 0,qm = 0;
+    var ta = 0, v = 0,h = 0,qm = 0;
 
     dataSource.map((data) => {
       h += data.hieu;
       ta += data.tienanh
       v += data.vinh
-      mn += data.minhnghia
       qm += data.quangminh
     })
     setresult([
-      ta, v, h ,mn,qm
+      ta, v, h ,qm
     ])
   }
   return (
@@ -213,11 +206,10 @@ export default function TableMoney({value, checkedList, money}) {
       />
       <Button onClick={totalMoney}>Tính tổng tiền</Button>
       <br/>
-        tien anh: {result[0]}<br/>
+        Tiến anh: {result[0]}<br/>
         Vinh: {result[1]}<br/>
-        Hieu: {result[2]}<br/>
-        Nghia minh: {result[3]}<br/>
-        Quang minh: {result[4]}<br/>
+        Hiếu Nghiện: {result[2]}<br/>
+        Quang minh: {result[3]}<br/>
     </div>
     
     </>

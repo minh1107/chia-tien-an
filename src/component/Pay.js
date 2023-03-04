@@ -3,7 +3,7 @@ import React, { Fragment, useState } from "react";
 import TableMoney from "./TableMoney";
 
 const CheckboxGroup = Checkbox.Group;
-const plainOptions = ["Tien anh", "Vinh", "Hieu", "Nghia Minh", "Quang Minh"];
+const plainOptions = ["Tien anh", "Vinh", "Hieu", "Quang Minh"];
 const defaultCheckedList = [];
 
 export default function Pay() {
@@ -34,10 +34,10 @@ export default function Pay() {
   return (
     <Fragment>
       <Radio.Group flex onChange={onChange} value={value}>
-        <Radio value={"Tien anh"}>Tien anh</Radio>
+        <Radio value={"Tien anh"}>Tiến anh</Radio>
         <Radio value={"Vinh"}>Vinh</Radio>
-        <Radio value={"Hieu"}>Hieu</Radio>
-        <Radio value={"Nghia Minh"}>Nghĩa Minh</Radio>
+        <Radio value={"Hieu"}>Hiếu Kẹo</Radio>
+        {/* <Radio value={"Nghia Minh"}>Nghĩa Minh</Radio> */}
         <Radio value={"Quang Minh"}>Quang Minh</Radio>
       </Radio.Group>
       <div>
@@ -80,18 +80,18 @@ export default function Pay() {
           }}
         >
           <Button type="primary" htmlType="submit">
-            Submit
+            Thêm thông tin
           </Button>
         </Form.Item>
       </Form>
       <div>
-        Người chi:
+        Người chi: {" "}
         {value}
         <br />
-        Người chịu:
+        Người chịu: {" "}
         {checkedList}
         <br />
-        money:
+        Tổng tiền: {" "}
         {money}
       </div>
       <TableMoney value={value} checkedList={checkedList} money={money}/>
